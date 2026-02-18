@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Model Performance Radar</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    background: radial-gradient(circle at center, #0a0a0a 0%, #000000 80%);
+    color: white;
+    font-family: Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* ⭐ Stars */
+.stars {
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+.stars span {
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    opacity:0.8;
+    animation: twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle {
+    0%,100% {opacity:0.2;}
+    50% {opacity:1;}
+}
+
+.container {
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+h1 {
+    font-size:28px;
+    background: linear-gradient(to right, #ffffff, #888888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom:8px;
+}
+
+p {
+    font-size:14px;
+    color:#aaaaaa;
+    margin-bottom:20px;
+}
+
+canvas {
+    max-width:600px;
+}
+
+.legend {
+    margin-top:15px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    font-size:14px;
+}
+
+.legend span::before {
+    content:"";
+    display:inline-block;
+    width:12px;
+    height:12px;
+    margin-right:8px;
+    border-radius:50%;
+}
+.llm::before { background:#bbbbbb; }
+.gan::before { background:#777777; }
+.gpm::before { background:white; }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
+    <h1>Model Performance at 30% GPM Training</h1>
+    <p>GPM achieves peak performance with ~30% data; LLMs & GANs typically need ~80%+</p>
+    <canvas id="radarChart" width="600" height="600"></canvas>
+
+    <div class="legend">
+        <span class="llm">LLM</span>
+        <span class="gan">GAN</span>
+        <span class="gpm">GPM</span>
+    </div>
+</div>
+
+<script>
+/* ⭐ Generate Stars */
+const starsContainer = document.getElementById("stars");
+for (let i = 0; i < 120; i++) {
+    const star = document.createElement("span");
+    star.style.left = Math.random()*100 + "%";
+    star.style.top = Math.random()*100 + "%";
+    star.style.animationDelay = Math.random()*3 + "s";
+    starsContainer.appendChild(star);
+}
+
+/* 📊 Radar Chart */
+const canvas = document.getElementById("radarChart");
+const ctx = canvas.getContext("2d");
+
+const labels = ["Accuracy", "Efficiency", "Speed", "Stability", "Scalability"];
+
+const datasets = [
+    { label: "LLM", data: [70, 20, 10, 55, 75], color: "#bbbbbb" },
+    { label: "GAN", data: [60, 35, 50, 45, 30], color: "#777777" },
+    { label: "GPM", data: [95, 80, 60, 60, 70], color: "#ffffff" }
+];
+
+const centerX = canvas.width/2;
+const centerY = canvas.height/2;
+const radius = 220;
+const levels = 5;
+const maxValue = 100;
+
+let progress = 0;
+
+/* Draw Grid */
+function drawGrid() {
+    ctx.strokeStyle = "rgba(255,255,255,0.15)";
+    ctx.lineWidth = 1;
+
+    for (let level = 1; level <= levels; level++) {
+        ctx.beginPath();
+        const r = radius * (level/levels);
+
+        for (let i = 0; i < labels.length; i++) {
+            const angle = (Math.PI*2/labels.length)*i - Math.PI/2;
+            const x = centerX + r*Math.cos(angle);
+            const y = centerY + r*Math.sin(angle);
+            i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+        }
+        ctx.closePath();
+        ctx.stroke();
+    }
+
+    /* Radial lines */
+    for (let i = 0; i < labels.length; i++) {
+        const angle = (Math.PI*2/labels.length)*i - Math.PI/2;
+        ctx.beginPath();
+        ctx.moveTo(centerX, centerY);
+        ctx.lineTo(
+            centerX + radius*Math.cos(angle),
+            centerY + radius*Math.sin(angle)
+        );
+        ctx.stroke();
+    }
+}
+
+/* Draw Labels */
+function drawLabels() {
+    ctx.font = "16px Arial";
+    ctx.textAlign = "center";
+
+    for (let i = 0; i < labels.length; i++) {
+        const angle = (Math.PI*2/labels.length)*i - Math.PI/2;
+        const x = centerX + (radius+30)*Math.cos(angle);
+        const y = centerY + (radius+30)*Math.sin(angle);
+
+        const gradient = ctx.createLinearGradient(x-20,y,x+20,y);
+        gradient.addColorStop(0,"#ffffff");
+        gradient.addColorStop(1,"#888888");
+
+        ctx.fillStyle = gradient;
+        ctx.fillText(labels[i], x, y);
+    }
+}
+
+/* Draw Dataset */
+function drawDataset(dataset) {
+    ctx.beginPath();
+
+    dataset.data.forEach((value,i)=>{
+        const percent = (value*progress)/maxValue;
+        const angle = (Math.PI*2/labels.length)*i - Math.PI/2;
+        const x = centerX + radius*percent*Math.cos(angle);
+        const y = centerY + radius*percent*Math.sin(angle);
+        i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    });
+
+    ctx.closePath();
+
+    ctx.fillStyle = dataset.color + "33";
+    ctx.strokeStyle = dataset.color;
+    ctx.lineWidth = 2;
+    ctx.shadowColor = dataset.color;
+    ctx.shadowBlur = 15;
+
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.shadowBlur = 0;
+}
+
+/* Animate */
+function animate() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    drawGrid();
+    drawLabels();
+    datasets.forEach(ds=>drawDataset(ds));
+
+    if(progress < 1) progress += 0.02;
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>

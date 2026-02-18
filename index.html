@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dimensionality - Building General Purpose Models (GPMs) for the future of AI">
+    <title>Dimensionality - General Purpose Models</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-gradient">Dimensionality</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#comparison" class="nav-link">Comparison</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#vision" class="nav-link">Vision</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <canvas id="particleCanvas"></canvas>
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-content parallax-element" data-speed="0.2">
+            <h1 class="hero-title">
+                <span class="gradient-text hero-title-main">Dimensionality</span>
+            </h1>
+            <p class="hero-subtitle">Building General Purpose Models for the Future</p>
+            <p class="hero-description">Pioneering the next generation of AI intelligence</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">Explore</a>
+                <a href="#contact" class="btn btn-secondary">Get Started</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">About Dimensionality</h2>
+                <p class="section-subtitle">Redefining artificial intelligence</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lorem-text">Dimensionality Private Limited develops <span class="about-power">next-generation AI</span> powered by its proprietary <span class="about-power">GPM architecture</span>, enabling a new scaling regime beyond traditional LLMs and GANs. GPM delivers over <span class="about-power">1,000×</span> system-level efficiency gains, including up to <span class="about-power">12,500%</span> faster training, <span class="about-power">5,600%</span> higher processing speed, and <span class="about-power">300%</span> improvements in GPU and memory efficiency. <span class="about-power">Prototype validation</span> confirms <span class="about-power">real-world performance</span> with rapid training, <span class="about-power">high accuracy</span>, and <span class="about-power">extremely low energy consumption</span>.</p>
+                </div>
+                <div class="about-visual">
+                    <div class="ai-visual-container">
+                        <div class="neural-network"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Comparison</h2>
+                <p class="section-subtitle">Performance metrics and benchmarks</p>
+            </div>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table gpm-comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>LLMs</th>
+                            <th>GPM (tokens)</th>
+                            <th>Advantage</th>
+                            <th>GANs</th>
+                            <th>GPM (pixels)</th>
+                            <th>Advantage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Data Efficiency</td>
+                            <td><span class="count-up" data-target="75" data-suffix="%+&lt;">0</span></td>
+                            <td><span class="count-up" data-target="30" data-suffix="%">0</span></td>
+                            <td><span class="count-up" data-target="2.5" data-suffix="x">0</span></td>
+                            <td><span class="count-up" data-target="80" data-suffix="%">0</span></td>
+                            <td><span class="count-up" data-target="30" data-suffix="%">0</span></td>
+                            <td><span class="count-up" data-target="2.7" data-suffix="x">0</span></td>
+                        </tr>
+                        <tr>
+                            <td>Training time</td>
+                            <td><span class="count-up" data-target="1200" data-suffix="+ sec/epoch">0</span></td>
+                            <td><span class="count-up" data-target="9.5" data-suffix=" sec/epoch">0</span></td>
+                            <td><span class="count-up" data-prefix="≈" data-target="126" data-suffix="x">0</span></td>
+                            <td><span class="count-up" data-target="190" data-suffix="+ sec/epoch">0</span></td>
+                            <td><span class="count-up" data-target="12.2" data-suffix=" sec/epoch">0</span></td>
+                            <td><span class="count-up" data-prefix="≈" data-target="15" data-suffix="x">0</span></td>
+                        </tr>
+                        <tr>
+                            <td>Memory Efficiency</td>
+                            <td><span class="count-up" data-target="8" data-suffix="+ gb">0</span></td>
+                            <td><span class="count-up" data-target="1.8" data-suffix="+ gb">0</span></td>
+                            <td><span class="count-up" data-prefix="≈" data-target="4" data-suffix="x">0</span></td>
+                            <td><span class="count-up" data-target="3" data-suffix=" gb">0</span></td>
+                            <td><span class="count-up" data-target="1.8" data-suffix=" gb">0</span></td>
+                            <td><span class="count-up" data-prefix="≈" data-target="1.6" data-suffix="x">0</span></td>
+                        </tr>
+                        <tr>
+                            <td>GPU Efficiency</td>
+                            <td><span class="count-up" data-target="6" data-suffix=" gb">0</span></td>
+                            <td><span class="count-up" data-target="1.4" data-suffix=" gb">0</span></td>
+                            <td><span class="count-up" data-target="4" data-suffix="x">0</span></td>
+                            <td><span class="count-up" data-target="7" data-suffix=" gb">0</span></td>
+                            <td><span class="count-up" data-target="3.9" data-suffix=" gb">0</span></td>
+                            <td><span class="count-up" data-prefix="≈" data-target="1.8" data-suffix="x">0</span></td>
+                        </tr>
+                        <tr>
+                            <td>Speed</td>
+                            <td><span class="count-up" data-target="18" data-suffix="s">0</span></td>
+                            <td><span class="count-up" data-target="2.3" data-suffix="s">0</span></td>
+                            <td><span class="count-up" data-prefix="≈" data-target="7.8" data-suffix="x">0</span></td>
+                            <td><span class="count-up" data-target="8" data-suffix="s per image">0</span></td>
+                            <td><span class="count-up" data-target="0.14" data-suffix="s per image">0</span></td>
+                            <td><span class="count-up" data-prefix="≈" data-target="57" data-suffix="x">0</span></td>
+                        </tr>
+                        <tr>
+                            <td>Accuracy</td>
+                            <td><span class="count-up" data-target="80" data-suffix="%">0</span></td>
+                            <td><span class="count-up" data-target="95" data-suffix="%">0</span></td>
+                            <td><span class="count-up" data-target="1.2" data-suffix="x">0</span></td>
+                            <td><span class="count-up" data-target="75" data-suffix="%">0</span></td>
+                            <td><span class="count-up" data-target="100" data-suffix="%">0</span></td>
+                            <td><span class="count-up" data-target="1.3" data-suffix="x">0</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Performance Section -->
+    <section id="model-performance" class="model-performance">
+        <canvas id="modelPerformanceStarsBg" class="model-performance-stars" aria-hidden="true"></canvas>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Model Performance at 30% GPM Training</h2>
+                <p class="section-subtitle">GPM achieves peak performance with ~30% data; LLMs &amp; GANs typically need ~80%+</p>
+            </div>
+            <div class="model-performance-inner">
+                <div class="radar-shell">
+                    <canvas id="modelRadarCanvas"></canvas>
+                    <div class="radar-legend" aria-label="Model comparison legend">
+                        <button class="radar-legend-item radar-legend-llm" data-dataset="0" type="button">
+                            <span class="radar-legend-swatch"></span>
+                            <span class="radar-legend-label">LLM</span>
+                        </button>
+                        <button class="radar-legend-item radar-legend-gan" data-dataset="1" type="button">
+                            <span class="radar-legend-swatch"></span>
+                            <span class="radar-legend-label">GAN</span>
+                        </button>
+                        <button class="radar-legend-item radar-legend-gpm" data-dataset="2" type="button">
+                            <span class="radar-legend-swatch"></span>
+                            <span class="radar-legend-label">GPM</span>
+                        </button>
+                    </div>
+                    <div class="radar-tooltip" role="status" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Key Features</h2>
+                <p class="section-subtitle">Cutting-edge capabilities</p>
+            </div>
+            <div class="features-content">
+                <div class="feature-item">
+                    <div class="feature-visual parallax-element" data-speed="0.3">
+                        <div class="feature-image-wrapper">
+                            <img src="assets/feature-1.svg" alt="Advanced Neural Networks" class="feature-image">
+                        </div>
+                    </div>
+                    <div class="feature-text">
+                        <h3 class="feature-title">1,000× System-Level Efficiency</h3>
+                        <p class="lorem-text">Dimensionality’s GPM architecture establishes a new efficiency frontier, achieving over 1,000× system-level efficiency gains compared to traditional LLMs and GANs.</p>
+                        <p class="lorem-text">This includes up to 126× faster training and 57× higher processing speed, with 4× improvements in GPU and memory efficiency, unlocking dramatically higher performance on the same hardware.</p>
+                    </div>
+                </div>
+                <div class="feature-item reverse">
+                    <div class="feature-visual parallax-element" data-speed="0.3">
+                        <div class="feature-image-wrapper">
+                            <img src="assets/feature-2.svg" alt="Scalable Infrastructure" class="feature-image">
+                        </div>
+                    </div>
+                    <div class="feature-text">
+                        <h3 class="feature-title">Radical Cost &amp; Energy Reduction</h3>
+                        <p class="lorem-text">At this efficiency level, GPM systems enable up to ~100× lower energy consumption compared to conventional large-scale models.</p>
+                        <p class="lorem-text">These gains translate into ~10×–100× lower infrastructure costs, allowing enterprises to deploy frontier-grade intelligence with far less compute, power, and operational overhead.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-visual parallax-element" data-speed="0.3">
+                        <div class="feature-image-wrapper">
+                            <img src="assets/feature-3.svg" alt="Real-time Processing" class="feature-image">
+                        </div>
+                    </div>
+                    <div class="feature-text">
+                        <h3 class="feature-title">Architectural Path to AGI</h3>
+                        <p class="lorem-text">A future model with ~1 trillion GPM parameters would be architecturally equivalent to ~1 quadrillion parameters in a conventional LLM, reflecting a 1,000× parameter efficiency advantage.</p>
+                        <p class="lorem-text">This architectural leverage establishes a realistic path toward AGI-scale intelligence without exponential growth in compute or hardware, making ultra-large-scale intelligence tractable and sustainable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision">
+        <div class="vision-background parallax-element" data-speed="0.5"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Our Vision</h2>
+                <p class="section-subtitle">Shaping the future of artificial intelligence</p>
+            </div>
+            <div class="vision-content">
+                <div class="vision-text">
+                    <h3 class="vision-title">Building General Purpose Models</h3>
+                    <p class="lorem-text vision-highlight">To build <span class="vision-tag">Artificial General Intelligence (AGI)</span> within <span class="vision-tag">1 trillion parameters GPM</span>, powered by the already achieved <span class="vision-tag">1,000× efficiency breakthrough</span>, redefining how intelligence scales beyond the limits of conventional LLMs.</p>
+                    <p class="lorem-text">By delivering intelligence equivalent to models that would otherwise require <span class="vision-emphasis">1 quadrillion parameters</span> in traditional LLMs, GPM enables AI systems that operate at radically lower cost, with higher security and stronger privacy by design, creating the world’s most efficient, secure, and profitable AI.</p>
+                </div>
+                <div class="vision-visual">
+                    <div class="ai-core-container">
+                        <div class="ai-core">
+                            <div class="core-ring ring-1"></div>
+                            <div class="core-ring ring-2"></div>
+                            <div class="core-ring ring-3"></div>
+                            <div class="core-center"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title gradient-text">Our Team</h2>
+                <p class="section-subtitle">Meet the leadership</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3 class="team-name">Shritej Prashant Kalekar</h3>
+                    <p class="team-role">Founder, CEO and President</p>
+                </div>
+                <div class="team-member">
+                    <h3 class="team-name">Sohum Nitin Nikam</h3>
+                    <p class="team-role">Co-Founder and CTO</p>
+                </div>
+                <div class="team-member">
+                    <h3 class="team-name">Mrudul Vasant Naik</h3>
+                    <p class="team-role">Financial Advisor to the Board</p>
+                </div>
+                <div class="team-member">
+                    <h3 class="team-name">Chinmayee Sandeep Barve</h3>
+                    <p class="team-role">Co-Founder, COO and CIPO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-logo gradient-text">Dimensionality</h3>
+                    <p class="footer-description">Building General Purpose Models for the future of artificial intelligence.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Company</h4>
+                        <ul class="footer-list">
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#comparison">Comparison</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#vision">Vision</a></li>
+                            <li><a href="#team">Team</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Resources</h4>
+                        <ul class="footer-list">
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Connect</h4>
+                        <ul class="footer-list">
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Newsletter</a></li>
+                            <li><a href="#">Partners</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/dimensionality-private-limited/posts/?feedView=all" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/dimensionalitygpm" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="mailto:dimensionalitygpmservices@gmail.com" class="social-icon" aria-label="Email" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dimensionality. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

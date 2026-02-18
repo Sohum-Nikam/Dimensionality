@@ -482,6 +482,7 @@ section {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
+    table-layout: auto;
     overflow: hidden;
     position: relative;
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
@@ -522,20 +523,58 @@ section {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Empty first column - minimal width spacer */
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+    width: 0.1%;
+    padding: 1.25rem 0.5rem;
+    min-width: 0;
+    border: none;
+    white-space: nowrap;
+}
+
+.comparison-table td:first-child {
+    padding: 1rem 0.5rem;
+}
+
+/* Aspect column (2nd) - left align */
+.comparison-table th:nth-child(2),
+.comparison-table td:nth-child(2) {
+    text-align: left;
+    font-weight: 500;
+}
+
+/* Numeric columns (3, 4, 6, 7) - right align for better readability */
+.comparison-table th:nth-child(3),
+.comparison-table th:nth-child(4),
+.comparison-table th:nth-child(6),
+.comparison-table th:nth-child(7),
+.comparison-table td:nth-child(3),
+.comparison-table td:nth-child(4),
+.comparison-table td:nth-child(6),
+.comparison-table td:nth-child(7) {
+    text-align: right;
+}
+
+/* Advantage columns (5th and 8th) - center align */
+.comparison-table th:nth-child(5),
+.comparison-table th:nth-child(8),
+.comparison-table td:nth-child(5),
+.comparison-table td:nth-child(8) {
+    text-align: center;
+    color: var(--text-white);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+    font-weight: 600;
+}
+
+/* GPM columns (4th and 7th) - highlight */
 .comparison-table th:nth-child(4),
 .comparison-table th:nth-child(7),
 .comparison-table td:nth-child(4),
 .comparison-table td:nth-child(7) {
     color: var(--text-white);
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
-}
-
-.comparison-table th:nth-child(3),
-.comparison-table th:nth-child(6),
-.comparison-table td:nth-child(3),
-.comparison-table td:nth-child(6) {
-    color: var(--text-white);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+    font-weight: 600;
 }
 
 .comparison-table tbody tr {
@@ -1490,6 +1529,11 @@ section {
     .comparison-table th,
     .comparison-table td {
         padding: 0.75rem 1rem;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+        padding: 0.75rem 0.25rem;
     }
 
     .team-grid {

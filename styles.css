@@ -71,6 +71,18 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-image {
+    height: 2rem;
+    width: auto;
+    object-fit: contain;
+}
+
 .logo-gradient {
     font-size: 1.5rem;
     font-weight: bold;
@@ -544,7 +556,7 @@ section {
     font-weight: 500;
 }
 
-/* Numeric columns (3, 4, 6, 7) - right align for better readability */
+/* Numeric columns (3, 4, 6, 7) - right align */
 .comparison-table th:nth-child(3),
 .comparison-table th:nth-child(4),
 .comparison-table th:nth-child(6),
@@ -1157,6 +1169,15 @@ section {
 .footer-logo {
     font-size: 2rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-logo-image {
+    height: 2rem;
+    width: auto;
+    object-fit: contain;
 }
 
 .footer-description {

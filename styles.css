@@ -535,58 +535,50 @@ section {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Empty first column - minimal width spacer */
-.comparison-table th:first-child,
-.comparison-table td:first-child {
-    width: 0.1%;
-    padding: 1.25rem 0.5rem;
-    min-width: 0;
-    border: none;
-    white-space: nowrap;
-}
-
-.comparison-table td:first-child {
-    padding: 1rem 0.5rem;
-}
-
-/* Aspect column (2nd) - left align */
-.comparison-table th:nth-child(2),
-.comparison-table td:nth-child(2) {
+/* Aspect column (1st) - left align */
+.comparison-table th:nth-child(1),
+.comparison-table td:nth-child(1) {
     text-align: left;
     font-weight: 500;
 }
 
-/* Numeric columns (3, 4, 6, 7) - right align */
+/* Numeric columns (2, 3, 5, 6) - right align for better readability */
+.comparison-table th:nth-child(2),
 .comparison-table th:nth-child(3),
-.comparison-table th:nth-child(4),
+.comparison-table th:nth-child(5),
 .comparison-table th:nth-child(6),
-.comparison-table th:nth-child(7),
+.comparison-table td:nth-child(2),
 .comparison-table td:nth-child(3),
-.comparison-table td:nth-child(4),
-.comparison-table td:nth-child(6),
-.comparison-table td:nth-child(7) {
+.comparison-table td:nth-child(5),
+.comparison-table td:nth-child(6) {
     text-align: right;
 }
 
-/* Advantage columns (5th and 8th) - center align */
-.comparison-table th:nth-child(5),
-.comparison-table th:nth-child(8),
-.comparison-table td:nth-child(5),
-.comparison-table td:nth-child(8) {
+/* Advantage columns (4th and 7th) - center align */
+.comparison-table th:nth-child(4),
+.comparison-table th:nth-child(7),
+.comparison-table td:nth-child(4),
+.comparison-table td:nth-child(7) {
     text-align: center;
     color: var(--text-white);
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
     font-weight: 600;
 }
 
-/* GPM columns (4th and 7th) - highlight */
-.comparison-table th:nth-child(4),
-.comparison-table th:nth-child(7),
-.comparison-table td:nth-child(4),
-.comparison-table td:nth-child(7) {
+/* GPM columns (3rd and 6th) - highlight */
+.comparison-table th:nth-child(3),
+.comparison-table th:nth-child(6),
+.comparison-table td:nth-child(3),
+.comparison-table td:nth-child(6) {
     color: var(--text-white);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
     font-weight: 600;
+}
+
+/* Dotted divider between token and pixel comparisons (after 4th column) */
+.comparison-table th:nth-child(4),
+.comparison-table td:nth-child(4) {
+    border-right: 1px dotted rgba(255, 255, 255, 0.2);
 }
 
 .comparison-table tbody tr {

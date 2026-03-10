@@ -525,16 +525,26 @@ section {
 }
 
 .comparison-table th {
-    padding: 0.9rem 1.5rem 1.3rem;
-    text-align: left;
+    padding: 1rem 1rem;
+    text-align: center;
     font-weight: 600;
     color: var(--text-white);
     border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     font-family: 'Google Sans', 'Lato', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     position: relative;
+}
+
+.comparison-table td {
+    padding: 1rem;
+    color: var(--text-gray);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .comparison-header-multi {
@@ -556,73 +566,74 @@ section {
     border-top-right-radius: 16px;
 }
 
-/* Empty first column - spacer */
-.comparison-table th:first-child,
-.comparison-table td:first-child {
-    width: 0.1%;
-    padding: 1.1rem 0.5rem;
-    min-width: 0;
-    border: none;
+/* Aspect column (1st) - LOCKED WIDTH */
+.comparison-table th.aspect-column,
+.comparison-table td.aspect-column {
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    padding: 1rem 1rem;
+    text-align: left !important;
+    font-weight: 600;
+    color: var(--text-white);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+    white-space: nowrap;
+    overflow: visible;
+}
+
+/* All non-aspect columns - let browser auto-calculate */
+.comparison-table th:not(.aspect-column),
+.comparison-table td:not(.aspect-column) {
     white-space: nowrap;
 }
 
-.comparison-table td:first-child {
-    padding: 1rem 0.5rem;
-}
-
-.comparison-table td {
-    padding: 1rem 1.5rem;
-    color: var(--text-gray);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-}
-
-/* Aspect column (2nd) - left align */
+/* Column 2: LLMs - center aligned */
 .comparison-table th:nth-child(2),
 .comparison-table td:nth-child(2) {
-    text-align: left;
+    text-align: center !important;
     font-weight: 500;
-    padding-left: 1.75rem;
 }
 
-/* Numeric columns (3, 4, 6, 7) - right align for better readability */
+/* Column 3: GPM (tokens) - center aligned */
 .comparison-table th:nth-child(3),
-.comparison-table th:nth-child(4),
-.comparison-table th:nth-child(6),
-.comparison-table th:nth-child(7),
-.comparison-table td:nth-child(3),
-.comparison-table td:nth-child(4),
-.comparison-table td:nth-child(6),
-.comparison-table td:nth-child(7) {
-    text-align: right;
+.comparison-table td:nth-child(3) {
+    text-align: center !important;
+    color: var(--text-white);
+    font-weight: 500;
 }
 
-/* Advantage columns (5th and 8th) - center align */
-.comparison-table th:nth-child(5),
-.comparison-table th:nth-child(8),
-.comparison-table td:nth-child(5),
-.comparison-table td:nth-child(8) {
-    text-align: center;
+/* Column 4: Advantage (LLM) - center aligned, highlight */
+.comparison-table th:nth-child(4),
+.comparison-table td:nth-child(4) {
+    text-align: center !important;
     color: var(--text-white);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
     font-weight: 600;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* GPM columns (4th and 7th) - highlight */
-.comparison-table th:nth-child(4),
-.comparison-table th:nth-child(7),
-.comparison-table td:nth-child(4),
-.comparison-table td:nth-child(7) {
-    color: var(--text-white);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
-    font-weight: 600;
-}
-
-/* Dotted divider between token and pixel comparisons (after 5th column) */
+/* Column 5: GANs - center aligned */
 .comparison-table th:nth-child(5),
 .comparison-table td:nth-child(5) {
-    border-right: 1px dotted rgba(255, 255, 255, 0.2);
+    text-align: center !important;
+    font-weight: 500;
+}
+
+/* Column 6: GPM (pixels) - center aligned */
+.comparison-table th:nth-child(6),
+.comparison-table td:nth-child(6) {
+    text-align: center !important;
+    color: var(--text-white);
+    font-weight: 500;
+}
+
+/* Column 7: Advantage (GAN) - center aligned, highlight */
+.comparison-table th:nth-child(7),
+.comparison-table td:nth-child(7) {
+    text-align: center !important;
+    color: var(--text-white);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+    font-weight: 600;
 }
 
 /* Clean row styling and subtle hover */
@@ -658,20 +669,7 @@ section {
     border-bottom: none;
 }
 
-.comparison-table tbody tr::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.07), transparent 55%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: -1;
-}
 
-.comparison-table tbody tr:hover::before {
-    opacity: 1;
-}
 
 .comparison-table-wrapper::-webkit-scrollbar {
     height: 8px;
